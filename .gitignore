@@ -1,0 +1,16 @@
+# Python virtual environment
+venv/
+
+# Generated data file
+news_data.json
+
+# Operating System temporary files
+.DS_Store
+*.pyc
+__pycache__/
+
+# Log files
+*.log
+
+# Exclude all shell scripts, as requested (includes setup, run, and server scripts)
+*.sh
