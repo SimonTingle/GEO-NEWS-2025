@@ -3,6 +3,9 @@
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Three.js](https://img.shields.io/badge/Three.js-3D%20Visualization-black.svg)](https://threejs.org/)
 [![Status](https://img.shields.io/badge/Status-Beta-orange.svg)](https://github.com)
+
+
+
 🌍 News Location Visualizer
 License: MIT Python Three.js Status
 
