@@ -1,9 +1,9 @@
-🌍 News Location Visualizer
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Three.js](https://img.shields.io/badge/Three.js-3D%20Visualization-black.svg)](https://threejs.org/)
 [![Status](https://img.shields.io/badge/Status-Beta-orange.svg)](https://github.com)
-
+🌍 News Location Visualizer
 License: MIT Python Three.js Status
 
 An interactive 3D globe that visualizes real-time global news coverage by extracting geographical locations from news articles and plotting them on a spinning globe. Combines web scraping, natural language processing, and 3D visualization technologies.
