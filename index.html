@@ -24,7 +24,6 @@
     }
   </style>
   
-  <!-- Load Three.js first, then Globe.GL -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
   <script src="//unpkg.com/globe.gl"></script>
 </head>
@@ -33,47 +32,75 @@
   <div id="timeDisplay">Current UTC: <span id="currentTime">--:--</span></div>
 
   <script>
-    // Define texture URLs
     const DAY_TEXTURE = './earth-day.jpg';
     const NIGHT_TEXTURE = './earth-night.jpg';
-    const FALLBACK_DAY_TEXTURE = '//unpkg.com/three-globe/example/img/earth-blue-marble.jpg';
+    const FALLBACK_DAY_TEXTURE = '//unpkg.com/three-globe/example/img/earth-day.jpg';
     const FALLBACK_NIGHT_TEXTURE = '//unpkg.com/three-globe/example/img/earth-night.jpg';
 
-    // Function to check if local images load
+    // 1. SHADERS: This is the math that blends the two textures
+    const EARTH_VERTEX_SHADER = `
+      varying vec2 vUv;
+      varying vec3 vNormal;
+      void main() {
+        vUv = uv;
+        vNormal = normalize(normalMatrix * normal);
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      }
+    `;
+
+    const EARTH_FRAGMENT_SHADER = `
+      uniform sampler2D dayTexture;
+      uniform sampler2D nightTexture;
+      uniform vec3 sunDirection;
+      varying vec2 vUv;
+      varying vec3 vNormal;
+
+      void main() {
+        vec3 viewDirection = normalize(cameraPosition - vNormal);
+        
+        // Calculate how much sun hits this pixel
+        float intensity = dot(vNormal, sunDirection);
+        
+        // Sample both textures
+        vec4 dayColor = texture2D(dayTexture, vUv);
+        vec4 nightColor = texture2D(nightTexture, vUv);
+        
+        // Blend them. 
+        // smoothstep creates a soft transition (twilight zone)
+        // 0.25 adds a bit of ambient light so the day side isn't blown out
+        float mixAmount = smoothstep(-0.2, 0.2, intensity);
+        
+        // Final color mix
+        gl_FragColor = mix(nightColor, dayColor, mixAmount);
+      }
+    `;
+
+    // Function to resolve texture URLs (Local vs CDN)
     function getGlobeImageUrls() {
         return new Promise(resolve => {
             const dayImg = new Image();
             const nightImg = new Image();
-            let dayLoaded = false;
-            let nightLoaded = false;
+            let dayLoaded = false, nightLoaded = false;
+            let daySrc = DAY_TEXTURE, nightSrc = NIGHT_TEXTURE;
 
-            function checkBothLoaded() {
-                if (dayLoaded && nightLoaded) {
-                    resolve({
-                        day: dayImg.src,
-                        night: nightImg.src
-                    });
-                }
+            function checkDone() {
+                if (dayLoaded && nightLoaded) resolve({ day: daySrc, night: nightSrc });
             }
 
-            dayImg.onload = () => {
-                console.log(`✅ Day texture loaded: ${DAY_TEXTURE}`);
-                dayLoaded = true;
-                checkBothLoaded();
-            };
+            dayImg.onload = () => { dayLoaded = true; checkDone(); };
             dayImg.onerror = () => {
-                console.warn(`⚠️ Failed to load local day texture. Falling back to CDN.`);
-                dayImg.src = FALLBACK_DAY_TEXTURE;
+                console.warn('Falling back to CDN Day texture');
+                daySrc = FALLBACK_DAY_TEXTURE;
+                dayLoaded = true;
+                checkDone();
             };
-
-            nightImg.onload = () => {
-                console.log(`✅ Night texture loaded: ${NIGHT_TEXTURE}`);
-                nightLoaded = true;
-                checkBothLoaded();
-            };
+            
+            nightImg.onload = () => { nightLoaded = true; checkDone(); };
             nightImg.onerror = () => {
-                console.warn(`⚠️ Failed to load local night texture. Falling back to CDN.`);
-                nightImg.src = FALLBACK_NIGHT_TEXTURE;
+                console.warn('Falling back to CDN Night texture');
+                nightSrc = FALLBACK_NIGHT_TEXTURE;
+                nightLoaded = true;
+                checkDone();
             };
 
             dayImg.src = DAY_TEXTURE;
@@ -81,86 +108,76 @@
         });
     }
 
-    // Calculate sun position based on current time
-    function calculateSunPosition() {
+    // Global reference to the uniforms so we can update them
+    const globeUniforms = {
+        dayTexture: { value: null },
+        nightTexture: { value: null },
+        sunDirection: { value: new THREE.Vector3(1, 0, 0) }
+    };
+
+    // Calculate sun position and update the Shader
+    function updateSunPosition(globe) {
         const now = new Date();
         const UTC_hours = now.getUTCHours();
         const UTC_minutes = now.getUTCMinutes();
         
-        // Update time display
-        document.getElementById('currentTime').textContent = 
+        document.getElementById('currentTime').textContent =
             `${UTC_hours.toString().padStart(2, '0')}:${UTC_minutes.toString().padStart(2, '0')}`;
         
-        // Calculate sun position (simplified)
-        // The sun moves 15 degrees per hour (360°/24h)
-        const hourAngle = (UTC_hours + UTC_minutes / 60) * Math.PI / 12;
+        // Calculate Sun Angle (Earth rotates, Sun stays "still", but relative to Earth...)
+        // We rotate the sun around the Y axis to simulate day passing
+        const offset = Math.PI; // Adjustment to match UTC 0 with London
+        const hourAngle = ((UTC_hours + UTC_minutes / 60) / 24) * (Math.PI * 2) + offset;
         
-        // Return sun position as [x, y, z] coordinates
-        return [
-            Math.cos(hourAngle),  // x
-            0,                    // y (keep sun at equator level)
-            Math.sin(hourAngle)   // z
-        ];
-    }
+        // Update Shader Uniform (Direction of light)
+        globeUniforms.sunDirection.value.set(
+             Math.sin(hourAngle),
+             0,
+             Math.cos(hourAngle)
+        ).normalize();
 
-    // Update globe lighting based on time
-    function updateDayNightCycle(globe) {
-        const sunPosition = calculateSunPosition();
-        
-        // Simple point color update based on day/night
+        // --- Update Data Points Colors (Your original logic preserved) ---
+        const sunPos = [ Math.sin(hourAngle), 0, Math.cos(hourAngle) ]; // Array for dot math
         const pointsData = globe.pointsData();
         if (pointsData && pointsData.length > 0) {
-            const updatedPoints = pointsData.map(point => {
-                // Convert lat/lng to 3D position
-                // FIX: Changed point.lng to point.lon to match JSON data
+            globe.pointsData(pointsData.map(point => {
                 const latRad = point.lat * Math.PI / 180;
                 const lngRad = point.lon * Math.PI / 180;
-              
                 const pointPos = [
                     Math.cos(lngRad) * Math.cos(latRad),
                     Math.sin(latRad),
                     Math.sin(lngRad) * Math.cos(latRad)
                 ];
-              
-                // Dot product to determine if point is in sunlight
-                const dotProduct = pointPos[0] * sunPosition[0] + 
-                                 pointPos[1] * sunPosition[1] + 
-                                 pointPos[2] * sunPosition[2];
-              
-                // Colors with 25% reduced brightness (multiplied by 0.75)
+                const dotProduct = pointPos[0] * sunPos[0] + pointPos[1] * sunPos[1] + pointPos[2] * sunPos[2];
                 return {
                     ...point,
-                    color: dotProduct > 0 ? 
-                        'rgba(191, 75, 75, 0.9)' :  // Day color - 25% darker red
-                        'rgba(191, 191, 75, 0.9)'   // Night color - 25% darker yellow
+                    color: dotProduct > 0 ? 'rgba(255, 50, 50, 0.8)' : 'rgba(255, 255, 100, 0.8)'
                 };
-            });
-            
-            globe.pointsData(updatedPoints);
+            }));
         }
     }
 
-    // 1. Fetch the news data and initialize globe
     async function initializeGlobe() {
         const textureUrls = await getGlobeImageUrls();
         
+        // Load textures as Three.js objects for the shader
+        const loader = new THREE.TextureLoader();
+        globeUniforms.dayTexture.value = loader.load(textureUrls.day);
+        globeUniforms.nightTexture.value = loader.load(textureUrls.night);
+
         try {
             const response = await fetch('news_data.json');
-            if (!response.ok) throw new Error('Failed to load news_data.json');
             const newsData = await response.json();
 
-            // Initialize the Globe instance
             const myGlobe = new Globe(document.getElementById('globeViz'))
-                .globeImageUrl(textureUrls.day)
+                // IMPORTANT: We use null here because we are replacing the material manually below
+                .globeImageUrl(null)
                 .backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png')
-                
                 .pointsData(newsData)
-                // FIX: Explicitly tell Globe to use 'lon' for longitude
                 .pointLng('lon')
-                
                 .pointAltitude(0.2)
                 .pointRadius(0.5)
-                .pointColor('color') // Use the dynamic color property we add
+                .pointColor('color')
                 .pointLabel(d => `
                     <div style="background: rgba(0,0,0,0.8); padding: 10px; color: white; border-radius: 5px; font-family: sans-serif;">
                         <b>${d.location}</b><br/>${d.title}
@@ -168,33 +185,36 @@
                 `)
                 .onPointClick(d => window.open(d.url, '_blank'));
 
-            // Set initial auto-rotation
+            // --- MAGIC HAPPENS HERE: Replace default material with Custom Shader ---
+            const globeMaterial = myGlobe.globeMaterial();
+            
+            // We create a ShaderMaterial
+            const customMaterial = new THREE.ShaderMaterial({
+                uniforms: globeUniforms,
+                vertexShader: EARTH_VERTEX_SHADER,
+                fragmentShader: EARTH_FRAGMENT_SHADER
+            });
+            
+            // Apply it to the globe
+            myGlobe.globeMaterial(customMaterial);
+            
+            // Initial rotation settings
             myGlobe.controls().autoRotate = true;
             myGlobe.controls().autoRotateSpeed = 0.5;
 
-            console.log(`Globe initialized with ${newsData.length} data points.`);
-
-            // Start day-night cycle updates
+            // Start Cycle
             function updateCycle() {
-                updateDayNightCycle(myGlobe);
+                updateSunPosition(myGlobe);
             }
-
-            // Update immediately and then every minute
+            
             updateCycle();
             setInterval(updateCycle, 60000); // Update every minute
 
         } catch (error) {
-            console.error("Error initializing the globe:", error);
-            document.getElementById('globeViz').innerHTML = `
-                <div style="color: white; padding: 20px; text-align: center; background: #333; margin: 20vh auto; width: 80%; font-family: sans-serif;">
-                    <h1>Error Loading Globe Data</h1>
-                    <p>Details: ${error.message}</p>
-                </div>
-            `;
+            console.error("Error:", error);
         }
     }
 
-    // Start the asynchronous process
     initializeGlobe();
   </script>
 </body>
