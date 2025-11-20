@@ -49,3 +49,5 @@ Python 3.9+ (includes python3 -m http.server)
 curl (standard on Linux/macOS, install via WSL on Windows)
 pip (Python package installer)
 
+![Localhost Screenshot](screenshot.png)
+
