@@ -6,6 +6,7 @@ from geopy.geocoders import Nominatim
 from collections import Counter
 import json
 from fake_useragent import UserAgent
+import requests   # <-- Added
 
 # Initialize the UserAgent generator
 ua = UserAgent()
@@ -20,6 +21,55 @@ config.request_timeout = 10
 print("⏳ Loading NLP model...")
 nlp = spacy.load("en_core_web_sm")
 geolocator = Nominatim(user_agent="news_geo_locator_rss_v2")
+
+
+# ----------------------------------------------------------------------
+# NEW: Context-aware location chooser to fix wrong geocoding outputs
+# ----------------------------------------------------------------------
+def choose_best_location(doc, locations):
+    bad_tokens = {
+        "US", "U.S.", "USA", "America", "United States",
+        "Truth Social", "Twitter", "X", "Meta", "Facebook", "Instagram"
+    }
+
+    # Remove junk entities
+    filtered = [loc for loc in locations if loc not in bad_tokens]
+    if not filtered:
+        filtered = locations
+
+    event_verbs = {
+        "hit", "strike", "kill", "erupts", "attack", "explosion",
+        "bomb", "flood", "earthquake", "erupted", "blasts", "shooting",
+        "dies", "dead", "injured", "collapse", "crash"
+    }
+
+    scores = {}
+
+    for ent in doc.ents:
+        if ent.label_ != "GPE":
+            continue
+
+        name = ent.text
+        score = 1
+
+        # Prefer specific cities over countries
+        if len(name.split()) > 1:
+            score += 1
+
+        # Boost if near an event verb
+        window = doc[max(ent.start - 8, 0): min(ent.end + 8, len(doc))]
+        for token in window:
+            if token.lemma_.lower() in event_verbs:
+                score += 4
+
+        scores[name] = max(scores.get(name, 0), score)
+
+    # Fallback: pick most frequent if all else fails
+    if not scores:
+        return Counter(filtered).most_common(1)[0][0]
+
+    return max(scores, key=scores.get)
+
 
 def get_location_from_article(url):
     print(f"   reading: {url[:60]}...")
@@ -50,9 +100,14 @@ def get_location_from_article(url):
 
     unique_locations = sorted(list(set(locations)))
     print(f"   🔍 GPEs found: {', '.join(unique_locations)}")
-    
-    most_common = Counter(locations).most_common(1)[0][0]
-    
+
+    # ----------------------------------------------------------------------
+    # REPLACED: most_common = Counter(locations).most_common(1)[0][0]
+    # NEW: Use context-based location choice
+    # ----------------------------------------------------------------------
+    most_common = choose_best_location(doc, locations)
+    # ----------------------------------------------------------------------
+
     # Geocode
     try:
         loc = geolocator.geocode(most_common)
@@ -72,11 +127,25 @@ def get_location_from_article(url):
     
     return None
 
+
 # --- MAIN EXECUTION ---
+RSS_TIMEOUT = 30   # <-- Added
+
 rss_feeds = [
     "http://feeds.bbci.co.uk/news/world/rss.xml",
     "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-    "https://www.aljazeera.com/xml/rss/all.xml"
+    "https://www.aljazeera.com/xml/rss/all.xml",
+
+    # Added
+    "https://www.reutersagency.com/feed/?best-topics=world&post_type=best",
+    "https://apnews.com/rss",
+    "https://www.theguardian.com/world/rss",
+    "https://www.france24.com/en/rss",
+    "https://www.dw.com/en/top-stories/world/s-1429/rss",
+    "https://www.cbc.ca/cmlink/rss-world",
+    "https://feeds.skynews.com/feeds/rss/world.xml",
+    "https://www.nhk.or.jp/rss/news/cat0.xml",
+    "https://www.latimes.com/world-nation/rss2.0.xml"
 ]
 
 final_data = []
@@ -84,8 +153,16 @@ print(f"--- Processing {len(rss_feeds)} News Feeds ---")
 
 for feed_url in rss_feeds:
     print(f"\n📡 Fetching RSS: {feed_url}")
-    feed = feedparser.parse(feed_url)
-    
+
+    # --- 30 second timeout wrapper ---
+    try:
+        response = requests.get(feed_url, timeout=RSS_TIMEOUT, headers={"User-Agent": ua.random})
+        feed = feedparser.parse(response.content)
+    except Exception as e:
+        print(f"   ❌ RSS Timeout/Fetch Failed: {e}")
+        continue
+    # --------------------------------
+
     for entry in feed.entries[:2]:
         data = get_location_from_article(entry.link)
         if data:
