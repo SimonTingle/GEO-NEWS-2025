@@ -6,25 +6,35 @@ from geopy.geocoders import Nominatim
 from collections import Counter
 import json
 from fake_useragent import UserAgent
-import requests   # <-- Added
+import requests
+import asyncio
+import aiohttp
+from aiohttp import ClientTimeout
 
 # Initialize the UserAgent generator
 ua = UserAgent()
 
 # --- CONFIGURATION ---
-# FIX: Get a fresh, random browser User-Agent every time the script runs
 config = Config()
 config.browser_user_agent = ua.random
 config.request_timeout = 10
 
-# Load NLP & Geocoder
 print("⏳ Loading NLP model...")
 nlp = spacy.load("en_core_web_sm")
 geolocator = Nominatim(user_agent="news_geo_locator_rss_v2")
 
+# ----------------------------------------------------------------------
+# Fallback mapping for impossible or ambiguous geocodes
+# ----------------------------------------------------------------------
+fallback_locations = {
+    "Gaza": "Gaza Strip",
+    "Gaza City": "Gaza Strip",
+    "Congo": "Democratic Republic of the Congo",
+    "Georgia": "Georgia (country)",
+}
 
 # ----------------------------------------------------------------------
-# NEW: Context-aware location chooser to fix wrong geocoding outputs
+# Context-aware scoring system
 # ----------------------------------------------------------------------
 def choose_best_location(doc, locations):
     bad_tokens = {
@@ -32,7 +42,6 @@ def choose_best_location(doc, locations):
         "Truth Social", "Twitter", "X", "Meta", "Facebook", "Instagram"
     }
 
-    # Remove junk entities
     filtered = [loc for loc in locations if loc not in bad_tokens]
     if not filtered:
         filtered = locations
@@ -52,11 +61,9 @@ def choose_best_location(doc, locations):
         name = ent.text
         score = 1
 
-        # Prefer specific cities over countries
         if len(name.split()) > 1:
             score += 1
 
-        # Boost if near an event verb
         window = doc[max(ent.start - 8, 0): min(ent.end + 8, len(doc))]
         for token in window:
             if token.lemma_.lower() in event_verbs:
@@ -64,79 +71,82 @@ def choose_best_location(doc, locations):
 
         scores[name] = max(scores.get(name, 0), score)
 
-    # Fallback: pick most frequent if all else fails
     if not scores:
         return Counter(filtered).most_common(1)[0][0]
 
     return max(scores, key=scores.get)
 
+# ----------------------------------------------------------------------
+# Article parsing and debugging table
+# ----------------------------------------------------------------------
+def debug_gpe_table(scores):
+    print("   🧪 GPE scoring table:")
+    for k, v in scores.items():
+        print(f"      {k}: {v}")
 
-def get_location_from_article(url):
-    print(f"   reading: {url[:60]}...")
-    
-    # We must refresh the User-Agent before each download attempt
-    article_config = Config()
-    article_config.browser_user_agent = ua.random
-    
+async def fetch_article_text(session, url):
+    headers = {"User-Agent": ua.random}
     try:
-        article = newspaper.Article(url, config=article_config)
-        article.download()
+        async with session.get(url, timeout=ClientTimeout(total=20), headers=headers) as resp:
+            return await resp.text()
+    except:
+        return None
+
+async def get_location_from_article_async(session, url):
+    print(f"   reading: {url[:60]}...")
+
+    html = await fetch_article_text(session, url)
+    if not html:
+        print("   ❌ ERROR: Could not fetch article HTML")
+        return None
+
+    article = newspaper.Article(url)
+    try:
+        article.set_html(html)
         article.parse()
     except Exception as e:
-        print(f"   ❌ ERROR: Download/Parse Failed: {e}")
+        print(f"   ❌ ERROR parsing article: {e}")
         return None
 
-    # NLP Extraction
     doc = nlp(article.text)
-    locations = [ent.text for ent in doc.ents if ent.label_ == 'GPE']
-    
-    if not article.text:
-        print(f"   ⚠️ FAIL: Article text content is empty.")
-    
+    locations = [ent.text for ent in doc.ents if ent.label_ == "GPE"]
+
     if not locations:
-        print(f"   ⚠️ FAIL: No GPEs (locations) found in text.")
-        print(f"   (Text Length: {len(article.text)})")
+        print("   ⚠️ No GPEs found")
         return None
 
-    unique_locations = sorted(list(set(locations)))
-    print(f"   🔍 GPEs found: {', '.join(unique_locations)}")
-
-    # ----------------------------------------------------------------------
-    # REPLACED: most_common = Counter(locations).most_common(1)[0][0]
-    # NEW: Use context-based location choice
-    # ----------------------------------------------------------------------
     most_common = choose_best_location(doc, locations)
-    # ----------------------------------------------------------------------
 
-    # Geocode
+    # apply fallback
+    if most_common in fallback_locations:
+        most_common = fallback_locations[most_common]
+
     try:
         loc = geolocator.geocode(most_common)
-        if loc:
-            print(f"   ✅ FOUND: '{most_common}' -> ({loc.latitude}, {loc.longitude})")
-            return {
-                "title": article.title,
-                "location": most_common,
-                "lat": loc.latitude,
-                "lon": loc.longitude,
-                "url": url
-            }
-        else:
-            print(f"   ❌ ERROR: Geocoder failed to find coordinates for '{most_common}'.")
-    except Exception as e:
-        print(f"   ❌ ERROR: Geocoding failed due to connection error.")
-    
-    return None
+        if not loc:
+            print(f"   ❌ Geocode failed for {most_common}")
+            return None
 
+        return {
+            "title": article.title,
+            "location": most_common,
+            "lat": loc.latitude,
+            "lon": loc.longitude,
+            "url": url
+        }
 
-# --- MAIN EXECUTION ---
-RSS_TIMEOUT = 30   # <-- Added
+    except:
+        return None
+
+# ----------------------------------------------------------------------
+# Parallel async RSS + article fetch
+# ----------------------------------------------------------------------
+RSS_TIMEOUT = 30
 
 rss_feeds = [
     "http://feeds.bbci.co.uk/news/world/rss.xml",
     "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
     "https://www.aljazeera.com/xml/rss/all.xml",
-
-    # Added
     "https://www.reutersagency.com/feed/?best-topics=world&post_type=best",
     "https://apnews.com/rss",
     "https://www.theguardian.com/world/rss",
@@ -148,29 +158,35 @@ rss_feeds = [
     "https://www.latimes.com/world-nation/rss2.0.xml"
 ]
 
-final_data = []
-print(f"--- Processing {len(rss_feeds)} News Feeds ---")
+async def process_feeds():
+    final_data = []
 
-for feed_url in rss_feeds:
-    print(f"\n📡 Fetching RSS: {feed_url}")
+    async with aiohttp.ClientSession() as session:
+        for feed_url in rss_feeds:
+            print(f"\n📡 Fetching RSS: {feed_url}")
 
-    # --- 30 second timeout wrapper ---
-    try:
-        response = requests.get(feed_url, timeout=RSS_TIMEOUT, headers={"User-Agent": ua.random})
-        feed = feedparser.parse(response.content)
-    except Exception as e:
-        print(f"   ❌ RSS Timeout/Fetch Failed: {e}")
-        continue
-    # --------------------------------
+            try:
+                async with session.get(feed_url, timeout=ClientTimeout(total=RSS_TIMEOUT), headers={"User-Agent": ua.random}) as resp:
+                    xml = await resp.text()
+            except:
+                print("   ❌ RSS fetch failed")
+                continue
 
-    for entry in feed.entries[:2]:
-        data = get_location_from_article(entry.link)
-        if data:
-            final_data.append(data)
+            feed = feedparser.parse(xml)
 
-# --- EXPORT ---
-output_file = "news_data.json"
-with open(output_file, "w") as f:
-    json.dump(final_data, f, indent=4)
+            tasks = []
+            for entry in feed.entries[:2]:
+                tasks.append(get_location_from_article_async(session, entry.link))
 
-print(f"\n🎉 Done! Saved {len(final_data)} locations to {output_file}")
+            results = await asyncio.gather(*tasks)
+            for r in results:
+                if r:
+                    final_data.append(r)
+
+    with open("news_data.json", "w") as f:
+        json.dump(final_data, f, indent=4)
+
+    print(f"\n🎉 Done! Saved {len(final_data)} locations to news_data.json")
+
+if __name__ == "__main__":
+    asyncio.run(process_feeds())
