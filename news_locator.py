@@ -31,6 +31,7 @@ fallback_locations = {
     "Gaza City": "Gaza Strip",
     "Congo": "Democratic Republic of the Congo",
     "Georgia": "Georgia (country)",
+    "Ivano": "Ivano-Frankivsk, Ukraine"
 }
 
 # ----------------------------------------------------------------------
@@ -141,7 +142,7 @@ async def get_location_from_article_async(session, url):
 # ----------------------------------------------------------------------
 # Parallel async RSS + article fetch
 # ----------------------------------------------------------------------
-RSS_TIMEOUT = 30
+RSS_TIMEOUT = 15
 
 rss_feeds = [
     "http://feeds.bbci.co.uk/news/world/rss.xml",
@@ -155,7 +156,70 @@ rss_feeds = [
     "https://www.cbc.ca/cmlink/rss-world",
     "https://feeds.skynews.com/feeds/rss/world.xml",
     "https://www.nhk.or.jp/rss/news/cat0.xml",
-    "https://www.latimes.com/world-nation/rss2.0.xml"
+    "https://www.latimes.com/world-nation/rss2.0.xml",
+    # Additional 20 feeds (first batch)
+    "https://www.washingtonpost.com/arcio/rss/category/world/",
+    "https://www.independent.co.uk/news/world/rss",
+    "https://www.scmp.com/rss/91/feed",
+    "https://www.abc.net.au/news/feed/51120/rss.xml",
+    "https://timesofindia.indiatimes.com/rssfeeds/296589292.cms",
+    "https://www.thehindu.com/news/international/feeder/default.rss",
+    "https://www.chinadaily.com.cn/rss/world_rss.xml",
+    "https://english.elpais.com/rss/elpais/portada_america.xml",
+    "https://www.jpost.com/rss/rssfeedsheadlines.aspx",
+    "https://www.haaretz.com/cmlink/1.628737",
+    "https://www.telegraph.co.uk/news/world/rss.xml",
+    "https://www.politico.eu/feed/",
+    "https://www.euronews.com/rss",
+    "https://www.straitstimes.com/news/world/rss.xml",
+    "https://www.dawn.com/feeds/world",
+    "https://www.rt.com/rss/news/",
+    "https://www.arabnews.com/rss.xml",
+    "https://www.irishtimes.com/cmlink/news-1.1319192",
+    "https://www.themoscowtimes.com/rss/news",
+    "https://www.thelocal.com/feeds/news",
+    # Additional 20 feeds (second batch)
+    "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml",
+    "https://www.koreatimes.co.kr/www/rss/news.xml",
+    "https://www.japantimes.co.jp/feed/",
+    "https://www.bangkokpost.com/rss/data/news.xml",
+    "https://vnexpress.net/rss/news.rss",
+    "https://www.nation.com.pk/rss/nation-news",
+    "https://www.thenational.ae/rss.xml",
+    "https://www.trtworld.com/feed/rss",
+    "https://www.aa.com.tr/en/rss/default?cat=world",
+    "https://www.iol.co.za/cmlink/1.730092",
+    "https://mg.co.za/rss/",
+    "https://www.news24.com/news24/southafrica/rss",
+    "https://www.eluniversal.com.mx/rss.xml",
+    "https://rss.clarin.com/rss/mundo/",
+    "https://g1.globo.com/rss/g1/mundo/",
+    "https://www.swissinfo.ch/eng/rss",
+    "https://www.thestar.com/content/thestar/feed.world.rss2",
+    "https://www.express.co.uk/posts/rss/78/world",
+    "https://www.mirror.co.uk/news/world-news/?service=rss",
+    "https://www.newsweek.com/rss",
+    # Additional 20 feeds (third batch)
+    "https://www.scotsman.com/news/world/rss",
+    "https://www.standard.co.uk/rss",
+    "https://www.ft.com/world?format=rss",
+    "https://www.economist.com/the-world-this-week/rss.xml",
+    "https://www.nzherald.co.nz/arc/outboundfeeds/rss/section/world/",
+    "https://www.stuff.co.nz/rss/world",
+    "https://www.smh.com.au/rss/world.xml",
+    "https://www.theage.com.au/rss/world.xml",
+    "https://www.xinhuanet.com/english/rss/worldrss.xml",
+    "https://english.kyodonews.net/rss/news.xml",
+    "https://en.yna.co.kr/RSS/news.xml",
+    "https://www.malaymail.com/feed",
+    "https://www.philstar.com/rss/headlines",
+    "https://www.thejakartapost.com/news.rss",
+    "https://www.thenews.com.pk/rss/1/1",
+    "https://www.dailysabah.com/rssFeed/11",
+    "https://www.hurriyetdailynews.com/feeds/homepage",
+    "https://www.timesofisrael.com/feed/",
+    "https://www.al-monitor.com/feed",
+    "https://www.africanews.com/feed/"
 ]
 
 async def process_feeds():
