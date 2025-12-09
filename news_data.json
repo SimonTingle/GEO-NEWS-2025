@@ -1,234 +1,283 @@
 [
     {
-        "title": "Zelensky's chief of staff Andriy Yermak resigns after anti-corruption raid",
+        "title": "Ukrainians raise flag in Pokrovsk to show BBC the fight goes on in city claimed by Russia",
         "location": "Russia",
         "lat": 64.6863136,
         "lon": 97.7453061,
-        "url": "https://www.bbc.com/news/articles/ckg9nd2wddno?at_medium=RSS&at_campaign=rss"
+        "url": "https://www.bbc.com/news/articles/cd6x3vv7y60o?at_medium=RSS&at_campaign=rss"
     },
     {
-        "title": "Global futures reopen after exchange operator CME hit by hours-long outage",
-        "location": "the United States",
-        "lat": 47.8291375,
-        "lon": -122.5970742,
-        "url": "https://www.aljazeera.com/economy/2025/11/28/global-futures-reopen-after-exchange-operator-cme-hit-by-hours-long-outage?traffic_source=rss"
+        "title": "Why are Thailand and Cambodia fighting at the border?",
+        "location": "Cambodia",
+        "lat": 12.5433216,
+        "lon": 104.8144914,
+        "url": "https://www.bbc.com/news/articles/cdjxje2pje1o?at_medium=RSS&at_campaign=rss"
     },
     {
-        "title": "Chelsea vs Arsenal: Premier League \u2013 teams, start time, lineups",
-        "location": "United Kingdom",
-        "lat": 54.7023545,
-        "lon": -3.2765753,
-        "url": "https://www.aljazeera.com/sports/2025/11/28/chelsea-vs-arsenal-premier-league-teams-start-time-lineups?traffic_source=rss"
+        "title": "\u2018I belong in my own country\u2019: Syrians celebrate a year after al-Assad",
+        "location": "Damascus",
+        "lat": 39.2694729,
+        "lon": -77.1968886,
+        "url": "https://www.aljazeera.com/news/2025/12/9/i-belong-in-my-own-country-syrians-celebrate-a-year-after-al-assad?traffic_source=rss"
     },
     {
-        "title": "Jacob Zuma\u2019s daughter resigns amid claims South Africans tricked to fight for Russia",
-        "location": "South Africa",
-        "lat": -28.8166236,
-        "lon": 24.991639,
-        "url": "https://www.theguardian.com/world/2025/nov/28/jacob-zuma-daughter-resigns-claims-south-africans-tricked-fight-russia"
+        "title": "ICC sentences Sudan militia-leading \u2018axeman\u2019 Rahman to 20 years",
+        "location": "Darfur",
+        "lat": 44.0513467,
+        "lon": -94.8380398,
+        "url": "https://www.aljazeera.com/news/2025/12/9/icc-sentences-sudan-axe-murderer-rahman-to-20-years?traffic_source=rss"
     },
     {
-        "title": "Africa\u2019s forests transformed from carbon sink to carbon source, study finds",
-        "location": "Democratic Republic of Congo",
-        "lat": -15.4139213,
-        "lon": 28.289698,
-        "url": "https://www.theguardian.com/environment/2025/nov/28/africa-forests-transformed-carbon-sink-carbon-source-study"
+        "title": "Nigerian troops held in Burkina Faso after \u2018unfriendly\u2019 emergency landing",
+        "location": "Burkina Faso",
+        "lat": 12.0753083,
+        "lon": -1.6880314,
+        "url": "https://www.theguardian.com/world/2025/dec/09/nigeria-troops-held-burkina-faso-emergency-landing"
     },
     {
-        "title": "UN calls for independent investigation into 'apparent summary execution' of 2 Palestinians in West Bank",
-        "location": "Israel",
-        "lat": 30.8124247,
-        "lon": 34.8594762,
-        "url": "https://www.cbc.ca/news/world/west-bank-jenin-palestinian-men-killed-israel-9.6995982?cmp=rss"
+        "title": "False claims Afrikaners are persecuted threaten South Africa\u2019s sovereignty, says president",
+        "location": "South Africa\u2019s",
+        "lat": -26.4631081,
+        "lon": 27.7670511,
+        "url": "https://www.theguardian.com/world/2025/dec/08/white-supremacist-notions-threaten-sovereignty-of-south-africa-ramaphosa"
     },
     {
-        "title": "Why the White House blames National Guard shooting on program that brought Afghan nationals to the U.S.",
-        "location": "the District of Columbia",
-        "lat": 38.8950368,
-        "lon": -77.0365427,
-        "url": "https://www.cbc.ca/news/world/afghan-nationals-us-program-9.6995070?cmp=rss"
-    },
-    {
-        "title": "Zelenskyy will cut a lonely figure without his towering chief of staff",
-        "location": "Moscow",
-        "lat": 55.625578,
-        "lon": 37.6063916,
-        "url": "https://news.sky.com/story/zelenskyy-will-cut-a-lonely-figure-without-his-towering-chief-of-staff-13476702"
-    },
-    {
-        "title": "In Saudi Arabia\u2019s green highlands, a different kingdom emerges",
-        "location": "Saudi Arabia",
-        "lat": 25.6242618,
-        "lon": 42.3528328,
-        "url": "https://www.latimes.com/world-nation/story/2025-11-28/saudi-tourism-piece"
-    },
-    {
-        "title": "Why Pope Leo XIV\u2019s Lebanon visit matters amid Israeli bombardment",
-        "location": "Lebanon",
-        "lat": 33.8750629,
-        "lon": 35.843409,
-        "url": "https://www.latimes.com/world-nation/story/2025-11-27/pope-leo-makes-first-foreign-visit-to-turkey-and-lebanon"
-    },
-    {
-        "title": "Who is Andrii Yermak? Zelensky\u2019s right-hand man who resigned after police raid in corruption probe",
-        "location": "Ukraine",
-        "lat": 49.4871968,
-        "lon": 31.2718321,
-        "url": "https://www.independent.co.uk/news/world/europe/andrii-yermak-zelensky-corruption-investigation-latest-b2874550.html"
-    },
-    {
-        "title": "France charges fourth suspect in daring Louvre jewel heist",
-        "location": "France",
-        "lat": 46.603354,
-        "lon": 1.8883335,
-        "url": "https://www.scmp.com/news/world/europe/article/3334583/france-charges-fourth-suspect-daring-louvre-jewel-heist?utm_source=rss_feed"
-    },
-    {
-        "title": "The first Australian-made car, the Holden 48-215, was introduced to the world on this day",
-        "location": "the United States",
-        "lat": 47.8291375,
-        "lon": -122.5970742,
-        "url": "https://www.abc.net.au/news/2025-11-29/today-in-history-november-29-holden-first-australian-car/105991878"
-    },
-    {
-        "title": "Albanese knows the power dynamic between Labor and mining interests has shifted",
-        "location": "Australia",
-        "lat": -24.7761086,
-        "lon": 134.755,
-        "url": "https://www.abc.net.au/news/2025-11-29/anthony-albanese-mining-labor-greens-deal-environment/106045658"
-    },
-    {
-        "title": "FBI Director Kash Patel breaks silence on rumours Trump wanted him out of the White House: 'It was pretty comical...'",
-        "location": "Kash",
-        "lat": 42.7825931,
-        "lon": -71.5176305,
-        "url": "https://timesofindia.indiatimes.com/world/us/fbi-director-kash-patel-breaks-silence-on-rumours-trump-wanted-him-out-of-the-white-house-it-was-pretty-comical-/articleshow/125643981.cms"
-    },
-    {
-        "title": "Man tells Ontario court he did 'sham marriages' in India to help Indian women immigrate to Canada",
-        "location": "Ontario",
-        "lat": 50.000678,
-        "lon": -86.000977,
-        "url": "https://timesofindia.indiatimes.com/world/rest-of-world/man-tells-ontario-court-he-did-sham-marriages-in-india-to-help-indian-women-immigrate-to-canada/articleshow/125643356.cms"
-    },
-    {
-        "title": "U.N. condemns \u2018summary execution\u2019 of two West Bank Palestinians by Israeli forces",
-        "location": "Geneva",
-        "lat": 46.2017559,
-        "lon": 6.1466014,
-        "url": "https://www.thehindu.com/news/international/un-condemns-summary-execution-of-two-west-bank-palestinians-by-israeli-forces/article70336211.ece"
-    },
-    {
-        "title": "Zelenskyy's chief of staff resigns as Ukraine corruption investigations widen",
-        "location": "the United States",
-        "lat": 47.8291375,
-        "lon": -122.5970742,
-        "url": "https://www.thehindu.com/news/international/zelenskyys-chief-of-staff-resigns-as-ukraine-corruption-investigations-widen/article70336167.ece"
-    },
-    {
-        "title": "Satellite lofted for first Arab country",
-        "location": "Algeria",
-        "lat": 28.0000272,
-        "lon": 2.9999825,
-        "url": "http://www.chinadaily.com.cn/a/201712/12/WS5a2f225ea3108bc8c67219dd.html"
-    },
-    {
-        "title": "Satellite lofted for first Arab country",
-        "location": "Algeria",
-        "lat": 28.0000272,
-        "lon": 2.9999825,
-        "url": "http://www.chinadaily.com.cn/a/201712/12/WS5a2f225ea3108bc8c67219dd.html"
-    },
-    {
-        "title": "Why Andriy Yermak\u2019s ouster is a political earthquake for Ukraine",
+        "title": "Canada 'continues to monitor' U.S. boat strikes in Caribbean as questions swirl and allies squirm",
         "location": "U.S.",
         "lat": 39.7837304,
         "lon": -100.445882,
-        "url": "https://www.politico.eu/article/andriy-yermaks-ukraine-politics-volodymyr-zelenskyy-scandal-kyiv-russia/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication"
+        "url": "https://www.cbc.ca/news/politics/venezuela-boat-strikes-caribbean-operation-caribbe-canada-9.7006766?cmp=rss"
     },
     {
-        "title": "Iran boycotts FIFA World Cup draw in Washington over visa spat with Trump",
-        "location": "Iran",
-        "lat": 32.6475314,
-        "lon": 54.5643516,
-        "url": "https://www.politico.eu/article/iran-boycotts-world-cup-draw-over-us-visa-issue/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication"
+        "title": "Trump son-in-law Jared Kushner part of hostile takeover bid for Warner Bros. Discovery",
+        "location": "Gaza Strip",
+        "lat": 31.4432234,
+        "lon": 34.360007,
+        "url": "https://www.cbc.ca/news/world/kushner-affinity-hostile-bid-warner-bros-discovery-netlfix-trump-9.7008226?cmp=rss"
     },
     {
-        "title": "Spain halts pork exports to China after first case of African swine flu in three decades",
-        "location": "China",
-        "lat": 35.000074,
-        "lon": 104.999927,
-        "url": "https://www.straitstimes.com/world/europe/spain-halts-pork-exports-to-china-after-first-case-of-african-swine-flu-in-three-decades"
-    },
-    {
-        "title": "Rubio plans to skip NATO meeting at key moment for Ukraine, sources say",
-        "location": "Washington",
-        "lat": 38.8950368,
-        "lon": -77.0365427,
-        "url": "https://www.straitstimes.com/world/europe/rubio-plans-to-skip-nato-meeting-at-key-moment-for-ukraine-sources-say"
-    },
-    {
-        "title": "Putin to discuss \u2018privileged partnership\u2019 with Modi on India visit next week",
+        "title": "Lithuania declares state of emergency over Belarus balloons",
         "location": "Russia",
         "lat": 64.6863136,
         "lon": 97.7453061,
-        "url": "https://www.dawn.com/news/1957919/putin-to-discuss-privileged-partnership-with-modi-on-india-visit-next-week"
+        "url": "https://news.sky.com/story/lithuania-declares-state-of-emergency-over-belarus-balloons-13481251"
     },
     {
-        "title": "UN high commissioner for human rights concerned by constitutional amendments, immunity provisions",
-        "location": "Pakistan",
-        "lat": 30.3308401,
-        "lon": 71.247499,
-        "url": "https://www.dawn.com/news/1957946/un-high-commissioner-for-human-rights-concerned-by-constitutional-amendments-immunity-provisions"
+        "title": "Ukraine war: The signs Putin is expecting more conflict, not less - and the frank conversation Keir Starmer needs to have",
+        "location": "Ukraine",
+        "lat": 49.4871968,
+        "lon": 31.2718321,
+        "url": "https://news.sky.com/story/ukraine-war-the-signs-putin-is-expecting-more-conflict-not-less-and-the-frank-conversation-keir-starmer-needs-to-have-13481187"
     },
     {
-        "title": "NATO state sets up \u2018night watch\u2019 to track Trump \u2013 media",
-        "location": "Denmark",
-        "lat": 55.670249,
-        "lon": 10.3333283,
-        "url": "https://www.rt.com/news/628632-denmark-trump-greenland-night-watch/?utm_source=rss&utm_medium=rss&utm_campaign=RSS"
+        "title": "High schools bullying is up, attendance down as ICE raids sow \u2018climate of distress,\u2019 study says",
+        "location": "Los Angeles",
+        "lat": 34.0536909,
+        "lon": -118.242766,
+        "url": "https://www.latimes.com/california/story/2025-12-09/ice-raids-translate-to-bullying-missing-class-academic-struggles"
     },
     {
-        "title": "Security risks behind need for US embassy\u2019s 40 extra car spaces at former D4 hotel site",
+        "title": "Supreme Court sounds ready to give Trump power to oust officials of independent agencies",
+        "location": "the United States",
+        "lat": 47.8291375,
+        "lon": -122.5970742,
+        "url": "https://www.latimes.com/politics/story/2025-12-08/supreme-court-sounds-ready-to-give-trump-power-to-oust-officials-of-independent-agencies"
+    },
+    {
+        "title": "Climber charged with manslaughter after \u2018leaving girlfriend to die\u2019 on Austria\u2019s highest peak",
+        "location": "Austria",
+        "lat": 47.59397,
+        "lon": 14.12456,
+        "url": "https://www.independent.co.uk/news/world/europe/climber-manslaughter-charge-girlfriend-death-grossglockner-b2880655.html"
+    },
+    {
+        "title": "Trump insists economy\u2019s performance is \u2018A-plus-plus-plus-plus-plus\u2019 and dismisses inflation concerns: Latest updates",
         "location": "US",
         "lat": 39.7837304,
         "lon": -100.445882,
-        "url": "https://www.irishtimes.com/ireland/2025/11/28/security-risks-behind-need-for-us-embassys-40-extra-car-spaces-at-former-d4-hotel-site/"
+        "url": "https://www.independent.co.uk/news/world/americas/us-politics/trump-news-live-hegseth-defense-military-updates-b2880690.html"
     },
     {
-        "title": "Five family members built up \u20ac366,000 in \u2018undeclared\u2019 earnings, court told",
-        "location": "Balenciaga",
-        "lat": 48.8682918,
-        "lon": 2.3082919,
-        "url": "https://www.irishtimes.com/crime-law/courts/2025/11/28/five-family-members-built-up-366000-in-undeclared-earnings-court-told/"
+        "title": "Japan issues megaquake advisory after magnitude 7.5 Aomori quake",
+        "location": "Japan",
+        "lat": 36.5748441,
+        "lon": 139.2394179,
+        "url": "https://www.scmp.com/news/asia/east-asia/article/3335797/japan-issues-megaquake-advisory-after-magnitude-75-aomori-quake?utm_source=rss_feed"
     },
     {
-        "title": "Putin Signs Law Raising Russia\u2019s Value-Added Tax to 22%",
-        "location": "Russia",
-        "lat": 64.6863136,
-        "lon": 97.7453061,
-        "url": "https://www.themoscowtimes.com/2025/11/28/putin-signs-law-raising-russias-value-added-tax-to-22-a91275"
+        "title": "Chinese-born architect Wang Fei dies in suspected car crash in London",
+        "location": "New York",
+        "lat": 40.7127281,
+        "lon": -74.0060152,
+        "url": "https://www.scmp.com/news/china/science/article/3335794/chinese-born-architect-wang-fei-dies-suspected-car-crash-london?utm_source=rss_feed"
     },
     {
-        "title": "Roskomnadzor Threatens to Block WhatsApp Over Alleged Legal Violations",
-        "location": "Russia",
-        "lat": 64.6863136,
-        "lon": 97.7453061,
-        "url": "https://www.themoscowtimes.com/2025/11/28/roskomnadzor-threatens-to-block-whatsapp-over-alleged-legal-violations-a91276"
+        "title": "Inquest wraps up into death of Perth 10yo boy in Department of Communities care",
+        "location": "Indigenous",
+        "lat": 33.4370332,
+        "lon": -111.9994322,
+        "url": "https://www.abc.net.au/news/2025-12-09/coronial-inquest-boys-death-state-care/106119640"
     },
     {
-        "title": "Driven by TikTok trends, new beauty brands target children",
-        "location": "New Jersey",
-        "lat": 40.0757384,
-        "lon": -74.4041622,
-        "url": "https://www.channelnewsasia.com/world/driven-tiktok-trends-new-beauty-brands-target-children-5496351"
+        "title": "Linda Reynolds will fight Commonwealth government 'until the bitter end' in lawsuit related to Brittany Higgins",
+        "location": "Ms Reynolds",
+        "lat": 32.3240002,
+        "lon": -88.9318067,
+        "url": "https://www.abc.net.au/news/2025-12-09/linda-reynolds-on-brittany-higgins-lawsuit-albanese-government/106122202"
     },
     {
-        "title": "Piastri on pole for Qatar sprint race, Norris third",
-        "location": "Qatar",
-        "lat": 25.3336984,
-        "lon": 51.2295295,
-        "url": "https://www.channelnewsasia.com/sport/piastri-pole-qatar-sprint-race-norris-third-5496376"
+        "title": "Explained: What are free zones in Dubai and how expats can start business there",
+        "location": "Dubai",
+        "lat": 25.0742823,
+        "lon": 55.1885387,
+        "url": "https://timesofindia.indiatimes.com/world/middle-east/explained-what-are-free-zones-in-dubai-and-how-expats-can-start-business-there/articleshow/125867748.cms"
+    },
+    {
+        "title": "Andrej Babis sworn in as Czech Republic\u2019s new Prime Minister",
+        "location": "the Czech Republic's",
+        "lat": 38.9393111,
+        "lon": -77.0540921,
+        "url": "https://www.thehindu.com/news/international/andrej-babis-sworn-in-as-czech-republics-new-prime-minister/article70375846.ece"
+    },
+    {
+        "title": "Cambodia vows fierce fight against Thailand in escalating border conflict",
+        "location": "Cambodia",
+        "lat": 12.5433216,
+        "lon": 104.8144914,
+        "url": "https://www.thehindu.com/news/international/cambodia-vows-fierce-fight-against-thailand-in-escalating-border-conflict/article70375678.ece"
+    },
+    {
+        "title": "Satellite lofted for first Arab country",
+        "location": "Algeria",
+        "lat": 28.0000272,
+        "lon": 2.9999825,
+        "url": "http://www.chinadaily.com.cn/a/201712/12/WS5a2f225ea3108bc8c67219dd.html"
+    },
+    {
+        "title": "Satellite lofted for first Arab country",
+        "location": "Algeria",
+        "lat": 28.0000272,
+        "lon": 2.9999825,
+        "url": "http://www.chinadaily.com.cn/a/201712/12/WS5a2f225ea3108bc8c67219dd.html"
+    },
+    {
+        "title": "IDF issues evacuation order for Tehran ahead of strikes",
+        "location": "Iran",
+        "lat": 32.6475314,
+        "lon": 54.5643516,
+        "url": "https://www.jpost.com/breaking-news/article-857933"
+    },
+    {
+        "title": "Defense Ministry to conduct exercise on Highway 35 on Sunday afternoon",
+        "location": "Turkey",
+        "lat": 39.294076,
+        "lon": 35.2316631,
+        "url": "https://www.jpost.com/breaking-news/article-856900"
+    },
+    {
+        "title": "Lithuania declares national emergency over surge in smugglers\u2019 balloons",
+        "location": "Lithuania",
+        "lat": 55.3500003,
+        "lon": 23.7499997,
+        "url": "https://www.politico.eu/article/lithuania-declares-national-state-emergency-smuggling-balloons-belarus-border/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication"
+    },
+    {
+        "title": "Severe food poisoning linked to Listeria on the rise in Europe, EU authorities warn",
+        "location": "the United Kingdom",
+        "lat": 52.4577754,
+        "lon": -1.8692099,
+        "url": "http://www.euronews.com/health/2025/12/09/severe-food-poisoning-linked-to-listeria-on-the-rise-in-europe-eu-authorities-warn"
+    },
+    {
+        "title": "Revealed: What are the most annoying Christmas songs?",
+        "location": "Los Angeles",
+        "lat": 34.0536909,
+        "lon": -118.242766,
+        "url": "http://www.euronews.com/culture/2025/12/09/revealed-what-are-the-most-annoying-christmas-songs"
+    },
+    {
+        "title": "Chilean regulator, workers flagged risk at Teck's Quebrada Blanca dam",
+        "location": "Brazil",
+        "lat": -10.3333333,
+        "lon": -53.2,
+        "url": "https://www.straitstimes.com/world/europe/chilean-regulator-workers-flagged-risk-at-tecks-quebrada-blanca-dam"
+    },
+    {
+        "title": "Trump approval rating rises as Republicans back cost-of-living efforts",
+        "location": "ST",
+        "lat": 0.9713095,
+        "lon": 7.02255,
+        "url": "https://www.straitstimes.com/world/united-states/trump-approval-rating-rises-as-republicans-back-cost-of-living-efforts"
+    },
+    {
+        "title": "After Texas, Florida also declares Muslim advocacy group CAIR foreign terrorist organisation",
+        "location": "US",
+        "lat": 39.7837304,
+        "lon": -100.445882,
+        "url": "https://www.dawn.com/news/1960114/after-texas-florida-also-declares-muslim-advocacy-group-cair-foreign-terrorist-organisation"
+    },
+    {
+        "title": "Owners fled after nightclub blaze killed 25 in India\u2019s Goa: police",
+        "location": "Arpora",
+        "lat": 15.5630974,
+        "lon": 73.7640368,
+        "url": "https://www.dawn.com/news/1960115/owners-fled-after-nightclub-blaze-killed-25-in-indias-goa-police"
+    },
+    {
+        "title": "\u2018It\u2019s time\u2019 for Ukraine to hold elections \u2013 Trump",
+        "location": "US",
+        "lat": 39.7837304,
+        "lon": -100.445882,
+        "url": "https://www.rt.com/news/629211-its-time-for-ukraine-to/?utm_source=rss&utm_medium=rss&utm_campaign=RSS"
+    },
+    {
+        "title": "Trump calls on Zelensky to start \u2018playing ball\u2019",
+        "location": "US",
+        "lat": 39.7837304,
+        "lon": -100.445882,
+        "url": "https://www.rt.com/news/629213-us-ukraine-playing-ball/?utm_source=rss&utm_medium=rss&utm_campaign=RSS"
+    },
+    {
+        "title": "Storm Bram live updates: Met \u00c9ireann extends weather warnings as some schools close and Dublin Airport flights cancelled",
+        "location": "Ireland",
+        "lat": 52.865196,
+        "lon": -7.9794599,
+        "url": "https://www.irishtimes.com/ireland/2025/12/09/storm-bram-live-updates-ireland/"
+    },
+    {
+        "title": "Bob Vylan issue defamation proceedings against RT\u00c9 over Glastonbury controversy",
+        "location": "Belfast",
+        "lat": 54.5975805,
+        "lon": -5.9277097,
+        "url": "https://www.irishtimes.com/crime-law/courts/2025/12/09/bob-vylan-issue-defamation-proceedings-against-rte-over-glastonbury-controversy/"
+    },
+    {
+        "title": "Russian Soldiers Returning From Ukraine Linked to Over 1K Killings and Injuries Inside Russia",
+        "location": "Ukraine",
+        "lat": 49.4871968,
+        "lon": 31.2718321,
+        "url": "https://www.themoscowtimes.com/2025/12/09/russian-soldiers-returning-from-ukraine-linked-to-over-1k-killings-and-injuries-inside-russia-a91380"
+    },
+    {
+        "title": "Russian Military Cargo Plane Crashes East of Moscow",
+        "location": "Ivanovo",
+        "lat": 56.9956855,
+        "lon": 40.9812104,
+        "url": "https://www.themoscowtimes.com/2025/12/09/russian-military-cargo-plane-crashes-east-of-moscow-a91377"
+    },
+    {
+        "title": "Hong Kong fire death toll climbs to 160",
+        "location": "HONG KONG",
+        "lat": 22.350627,
+        "lon": 114.1849161,
+        "url": "https://www.channelnewsasia.com/east-asia/hong-kong-fire-death-toll-5570306"
+    },
+    {
+        "title": "Microsoft to invest more than $5.4 billion in Canada to boost AI infrastructure",
+        "location": "Canada",
+        "lat": 61.0666922,
+        "lon": -107.991707,
+        "url": "https://www.channelnewsasia.com/business/microsoft-invest-more-54-billion-in-canada-boost-ai-infrastructure-5570266"
     },
     {
         "title": "Protesters leave key roads after historic Hong Kong rally",
@@ -245,109 +294,81 @@
         "url": "https://www.bangkokpost.com/news/world/1696636/businesses-clamor-for-trumps-ear-as-300-bn-in-new-china-tariffs-loom"
     },
     {
-        "title": "Thandiswa Mazwai: Still speaking for future generations",
-        "location": "South Africa\u2019s",
-        "lat": -26.4630024,
-        "lon": 27.7668795,
-        "url": "https://mg.co.za/friday/2025-11-28-thandiswa-mazwai-still-speaking-for-future-generations/"
-    },
-    {
-        "title": "Zakes Bantwini on pain, praise and the power of Dance Music",
+        "title": "Transfer duties breaking SA\u2019s property ladder",
         "location": "South Africa",
         "lat": -28.8166236,
         "lon": 24.991639,
-        "url": "https://mg.co.za/friday/2025-11-28-zakes-bantwini-on-pain-praise-and-the-power-of-dance-music/"
+        "url": "https://mg.co.za/thought-leader/opinion/2025-12-07-transfer-duties-breaking-sas-property-ladder/"
     },
     {
-        "title": "Airbus ordena recall urgente em avi\u00f5es A320 ap\u00f3s incidente relacionado a controles da aeronave",
-        "location": "R\u00fassia",
-        "lat": 64.6863136,
-        "lon": 97.7453061,
-        "url": "https://g1.globo.com/mundo/noticia/2025/11/28/airbus-ordena-recall-a320.ghtml"
+        "title": "Africa\u2019s forest hornbills gain global protection as Cites lists species for first time",
+        "location": "Central Africa",
+        "lat": -25.3579401,
+        "lon": -57.5835295,
+        "url": "https://mg.co.za/the-green-guardian/2025-12-07-africas-forest-hornbills-gain-global-protection-as-cites-lists-species-for-first-time/"
     },
     {
-        "title": "Em meio a esc\u00e2ndalo de corrup\u00e7\u00e3o, chefe de gabinete de Zelensky renuncia na Ucr\u00e2nia",
-        "location": "R\u00fassia",
-        "lat": 64.6863136,
-        "lon": 97.7453061,
-        "url": "https://g1.globo.com/mundo/noticia/2025/11/28/em-meio-a-crise-de-corrupcao-chefe-de-gabinete-de-zelensky-renuncia-na-ucrania.ghtml"
+        "title": "Trump considera ampliar opera\u00e7\u00f5es militares para o M\u00e9xico e a Col\u00f4mbia, diz site",
+        "location": "M\u00e9xico",
+        "lat": 23.6585116,
+        "lon": -102.0077097,
+        "url": "https://g1.globo.com/mundo/noticia/2025/12/09/trump-considera-ampliar-operacoes-militares-para-o-mexico-e-a-colombia-diz-site.ghtml"
     },
     {
-        "title": "Donald Trump health fears soar as 'cognitive decline is obvious'",
+        "title": "Russia plane crash horror as military flight plunges into reservoir with 7 onboard",
+        "location": "Ivanovo",
+        "lat": 56.9956855,
+        "lon": 40.9812104,
+        "url": "https://www.express.co.uk/news/world/2144047/russia-plane-crash-horror-military"
+    },
+    {
+        "title": "'Paedophile Santa for hire' arrested and charged with child sex abuse offences",
+        "location": "Mercer County",
+        "lat": 41.3334542,
+        "lon": -80.3014412,
+        "url": "https://www.express.co.uk/news/world/2144024/paedophile-santa-hire-arrested-charged-child-sexual-abuse-offences"
+    },
+    {
+        "title": "'True evil' killer 'taught witchcraft by dad' murdered own mum and was foiled by insects",
+        "location": "Las Vegas",
+        "lat": 36.1674263,
+        "lon": -115.1484131,
+        "url": "https://www.mirror.co.uk/news/us-news/true-evil-killer-taught-witchcraft-36372467"
+    },
+    {
+        "title": "Twisted teen's chilling courtroom escape bid after butchering sister in satanic ritual",
+        "location": "Satan",
+        "lat": 49.1631527,
+        "lon": 20.0528304,
+        "url": "https://www.mirror.co.uk/news/world-news/twisted-teens-chilling-courtroom-escape-36369019"
+    },
+    {
+        "title": "Woman Checks Bernese Mountain Dog\u2019s Fur, Sees Something Moving With a Tail",
+        "location": "Amelia",
+        "lat": 37.3319664,
+        "lon": -78.008448,
+        "url": "https://www.newsweek.com/woman-checks-bernese-mountain-dogs-fur-sees-something-moving-with-a-tail-11179326"
+    },
+    {
+        "title": "Vermont Schools Sent Violent Messages After Raising Somali Flag",
+        "location": "the United States",
+        "lat": 47.8291375,
+        "lon": -122.5970742,
+        "url": "https://www.newsweek.com/vermont-schools-sent-violent-messages-after-raising-somali-flag-11179441"
+    },
+    {
+        "title": "Marles refuses 12 times to say what the Americans want in AUKUS review",
         "location": "US",
         "lat": 39.7837304,
         "lon": -100.445882,
-        "url": "https://www.express.co.uk/news/world/2140085/donald-trump-health-fears-cognitive-decline"
+        "url": "https://www.smh.com.au/world/north-america/hegseth-touts-australia-s-next-1-5-billion-aukus-cheque-as-ministers-meet-20251209-p5nlzl.html?ref=rss&utm_medium=rss&utm_source=rss_world"
     },
     {
-        "title": "Ukraine warned to 'prepare and stock up' for Putin's 500-drone terror",
-        "location": "Russia",
-        "lat": 64.6863136,
-        "lon": 97.7453061,
-        "url": "https://www.express.co.uk/news/world/2140032/ukraine-drone-missile-attack-putin-russia"
-    },
-    {
-        "title": "Volodymyr Zelensky's 'gatekeeper' quits after shock anti-corruption-raid",
-        "location": "Russia",
-        "lat": 64.6863136,
-        "lon": 97.7453061,
-        "url": "https://www.mirror.co.uk/news/world-news/volodymyr-zelenskys-gatekeeper-quits-after-36324540"
-    },
-    {
-        "title": "Ukraine's second most powerful man in anti-corruption probe",
-        "location": "Ukraine",
-        "lat": 49.4871968,
-        "lon": 31.2718321,
-        "url": "https://www.mirror.co.uk/news/world-news/ukraines-second-most-powerful-man-36324035"
-    },
-    {
-        "title": "\u2018College GameDay\u2019 Makes Big Announcement Before Ohio State-Michigan Game",
-        "location": "Ann Arbor",
-        "lat": 42.2813722,
-        "lon": -83.7484616,
-        "url": "https://www.newsweek.com/sports/ncaa/college-gameday-makes-big-announcement-before-ohio-state-michigan-game-11127233"
-    },
-    {
-        "title": "Commanders\u2019 Dan Quinn Makes Final Call on Jayden Daniels, Terry McLaurin for Week 13",
-        "location": "Quinn",
-        "lat": 43.9880447,
-        "lon": -102.126266,
-        "url": "https://www.newsweek.com/sports/nfl/commanders-dan-quinn-makes-final-call-on-jayden-daniels-terry-mclaurin-for-week-13-11127327"
-    },
-    {
-        "title": "Marella Explorer: British passenger falls overboard from Tui-operated cruise ship off Tenerife",
-        "location": "Tenerife\u2019s west",
-        "lat": 52.3433111,
-        "lon": 4.7911404,
-        "url": "https://www.scotsman.com/news/uk-news/marella-explorer-british-passenger-falls-overboard-from-tui-operated-cruise-ship-off-tenerife-5421741"
-    },
-    {
-        "title": "Zelensky\u2019s chief of staff resigns as Ukraine corruption scandal widens",
+        "title": "Marles refuses 12 times to say what the Americans want in AUKUS review",
         "location": "US",
         "lat": 39.7837304,
         "lon": -100.445882,
-        "url": "https://www.smh.com.au/world/europe/zelensky-s-chief-of-staff-resigns-as-ukraine-corruption-scandal-widens-20251129-p5njea.html?ref=rss&utm_medium=rss&utm_source=rss_world"
-    },
-    {
-        "title": "Death toll from Hong Kong fire rises",
-        "location": "Hong Kong",
-        "lat": 22.350627,
-        "lon": 114.1849161,
-        "url": "https://www.smh.com.au/world/death-toll-from-hong-kong-fire-rises-20251128-p5njct.html?ref=rss&utm_medium=rss&utm_source=rss_world"
-    },
-    {
-        "title": "Zelensky\u2019s chief of staff resigns as Ukraine corruption scandal widens",
-        "location": "US",
-        "lat": 39.7837304,
-        "lon": -100.445882,
-        "url": "https://www.theage.com.au/world/europe/zelensky-s-chief-of-staff-resigns-as-ukraine-corruption-scandal-widens-20251129-p5njea.html?ref=rss&utm_medium=rss&utm_source=rss_world"
-    },
-    {
-        "title": "Death toll from Hong Kong fire rises",
-        "location": "Hong Kong",
-        "lat": 22.350627,
-        "lon": 114.1849161,
-        "url": "https://www.theage.com.au/world/death-toll-from-hong-kong-fire-rises-20251128-p5njct.html?ref=rss&utm_medium=rss&utm_source=rss_world"
+        "url": "https://www.theage.com.au/world/north-america/hegseth-touts-australia-s-next-1-5-billion-aukus-cheque-as-ministers-meet-20251209-p5nlzl.html?ref=rss&utm_medium=rss&utm_source=rss_world"
     },
     {
         "title": "Palestinians clash with Israeli soldiers after protest against Pence visit - Xinhua",
@@ -357,66 +378,80 @@
         "url": "http://www.xinhuanet.com/english/world/2018-01/24/c_136919909.htm"
     },
     {
-        "title": "S. Korea picked as IMO's top council member for 13th consecutive time",
-        "location": "South Korea",
-        "lat": 36.638392,
-        "lon": 127.6961188,
-        "url": "https://en.yna.co.kr/view/AEN20251128011400315"
+        "title": "U.S. failure to appoint Australian ambassador \"diplomatic insult\": former deputy PM - Xinhua",
+        "location": "U.S.",
+        "lat": 39.7837304,
+        "lon": -100.445882,
+        "url": "http://www.xinhuanet.com/english/2018-01/03/c_136868968.htm"
     },
     {
-        "title": "S. Korea, Norway defense chiefs discuss arms industry cooperation",
-        "location": "South Korea",
-        "lat": 36.638392,
-        "lon": 127.6961188,
-        "url": "https://en.yna.co.kr/view/AEN20251128011300315"
+        "title": "(2nd LD) Police raid Coupang over massive data breach",
+        "location": "SEOUL",
+        "lat": 37.5666791,
+        "lon": 126.9782914,
+        "url": "https://en.yna.co.kr/view/AEN20251209006652315"
     },
     {
-        "title": "T\u00fcrkiye, Armenia hold 2nd round of talks on reopening Kars\u2013Gyumri railway",
+        "title": "Seoul reaffirms sovereignty over Dokdo following Japanese PM's claim",
+        "location": "South Korea's",
+        "lat": 36.96436,
+        "lon": 126.99843,
+        "url": "https://en.yna.co.kr/view/AEN20251209011500315"
+    },
+    {
+        "title": "Erdo\u011fan urges YPG to honor March deal",
+        "location": "US",
+        "lat": 39.7837304,
+        "lon": -100.445882,
+        "url": "https://www.dailysabah.com/politics/erdogan-urges-ypg-to-honor-march-deal/news"
+    },
+    {
+        "title": "T\u00fcrkiye cracks down on FET\u00d6, Daesh terrorist rings",
         "location": "T\u00fcrkiye",
         "lat": 39.294076,
         "lon": 35.2316631,
-        "url": "https://www.dailysabah.com/politics/diplomacy/turkiye-armenia-hold-2nd-round-of-talks-on-reopening-karsgyumri-railway"
+        "url": "https://www.dailysabah.com/politics/war-on-terror/turkiye-cracks-down-on-feto-daesh-terrorist-rings"
     },
     {
-        "title": "T\u00fcrkiye urges halt to Israeli strikes near Syria's capital Damascus",
-        "location": "Israel",
-        "lat": 30.8124247,
-        "lon": 34.8594762,
-        "url": "https://www.dailysabah.com/politics/diplomacy/turkiye-urges-halt-to-israeli-strikes-near-syrias-capital-damascus"
+        "title": "\u2018Because they have money\u2019: French nanny on trial for poisoning Jewish family",
+        "location": "France",
+        "lat": 46.603354,
+        "lon": 1.8883335,
+        "url": "https://www.timesofisrael.com/because-they-have-money-french-nanny-on-trial-for-poisoning-jewish-family/"
     },
     {
-        "title": "Skinny on weight loss: Israeli researchers warn dieting in middle age may harm the brain",
-        "location": "MD",
-        "lat": 47.2879608,
-        "lon": 28.5670941,
-        "url": "https://www.timesofisrael.com/skinny-on-weight-loss-israeli-researchers-warn-dieting-in-middle-age-may-harm-the-brain/"
+        "title": "IDF says it hit Hezbollah targets, including training site for elite Radwan Force",
+        "location": "Lebanon",
+        "lat": 33.8750629,
+        "lon": 35.843409,
+        "url": "https://www.timesofisrael.com/idf-says-it-hit-hezbollah-targets-including-training-site-for-elite-radwan-force/"
     },
     {
-        "title": "Advantage Ogier as Evans' title hopes punctured at Rally Saudi Arabia",
-        "location": "Saudi Arabia",
-        "lat": 25.6242618,
-        "lon": 42.3528328,
-        "url": "https://www.al-monitor.com/originals/2025/11/advantage-ogier-evans-title-hopes-punctured-rally-saudi-arabia"
+        "title": "'Shockingly high' number of Gaza children still acutely malnourished after truce, UN says",
+        "location": "the Gaza Strip",
+        "lat": 31.5137304,
+        "lon": 34.4398271,
+        "url": "https://www.al-monitor.com/originals/2025/12/shockingly-high-number-gaza-children-still-acutely-malnourished-after-truce-un"
     },
     {
-        "title": "Hezbollah chief says group will decide timing of response to Israel's killing of Tabtabai",
-        "location": "Israel",
-        "lat": 30.8124247,
-        "lon": 34.8594762,
-        "url": "https://www.al-monitor.com/originals/2025/11/hezbollah-chief-says-group-will-decide-timing-response-israels-killing-tabtabai"
-    },
-    {
-        "title": "NGO says EU border policy driving young refugees into the hands of traffickers",
+        "title": "RSF says Israel killed highest number of journalists again this year",
         "location": "Sudan",
         "lat": 14.5844444,
         "lon": 29.4917691,
-        "url": "http://www.africanews.com/2025/11/28/ngo-says-eu-border-policy-driving-young-refugees-into-the-hands-of-traffickers/"
+        "url": "https://www.al-monitor.com/originals/2025/12/rsf-says-israel-killed-highest-number-journalists-again-year"
     },
     {
-        "title": "Royal Air Maroc unveils special fares for CAN 2025 supporters",
-        "location": "Morocco",
-        "lat": 28.3347722,
-        "lon": -10.3713379,
-        "url": "http://www.africanews.com/2025/11/28/royal-air-maroc-unveils-special-fares-for-can-2025-supporters/"
+        "title": "Sahel alliance warns Nigeria it will 'neutralise' any unauthorised aircraft in its airspace",
+        "location": "Benin",
+        "lat": 9.5293472,
+        "lon": 2.2584408,
+        "url": "http://www.africanews.com/2025/12/09/sahel-alliance-warns-nigeria-it-will-neutralise-any-unauthorised-aircraft-in-its-airspace/"
+    },
+    {
+        "title": "Australia launches world-first social media ban for under-16s",
+        "location": "Australia",
+        "lat": -24.7761086,
+        "lon": 134.755,
+        "url": "http://www.africanews.com/2025/12/09/australia-launches-world-first-social-media-ban-for-under-16s/"
     }
 ]
