@@ -60,6 +60,11 @@ def choose_best_location(doc, locations):
             continue
 
         name = ent.text
+        # Honour the bad-token filter in the scoring path too, otherwise
+        # entities like "United States" can still win via max(scores).
+        if name in bad_tokens:
+            continue
+
         score = 1
 
         if len(name.split()) > 1:
@@ -89,8 +94,12 @@ async def fetch_article_text(session, url):
     headers = {"User-Agent": ua.random}
     try:
         async with session.get(url, timeout=ClientTimeout(total=20), headers=headers) as resp:
+            if resp.status != 200:
+                print(f"   ❌ ERROR: HTTP {resp.status} for {url[:60]}")
+                return None
             return await resp.text()
-    except:
+    except Exception as e:
+        print(f"   ❌ ERROR fetching article: {e}")
         return None
 
 async def get_location_from_article_async(session, url):
@@ -101,7 +110,7 @@ async def get_location_from_article_async(session, url):
         print("   ❌ ERROR: Could not fetch article HTML")
         return None
 
-    article = newspaper.Article(url)
+    article = newspaper.Article(url, config=config)
     try:
         article.set_html(html)
         article.parse()
@@ -136,7 +145,8 @@ async def get_location_from_article_async(session, url):
             "url": url
         }
 
-    except:
+    except Exception as e:
+        print(f"   ❌ ERROR geocoding {most_common}: {e}")
         return None
 
 # ----------------------------------------------------------------------
@@ -242,8 +252,11 @@ async def process_feeds():
             for entry in feed.entries[:2]:
                 tasks.append(get_location_from_article_async(session, entry.link))
 
-            results = await asyncio.gather(*tasks)
+            results = await asyncio.gather(*tasks, return_exceptions=True)
             for r in results:
+                if isinstance(r, Exception):
+                    print(f"   ❌ ERROR processing article: {r}")
+                    continue
                 if r:
                     final_data.append(r)
 
