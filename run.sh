@@ -17,6 +17,6 @@ if [ -d "$VENV_PATH" ]; then
     python "$DIR/news_locator.py"
 else
     echo "❌ Error: Virtual environment not found at $VENV_PATH"
-    echo "   Run ./setup.sh first!"
+    echo "   Run ./news_locator_lib.sh first!"
     exit 1
 fi
