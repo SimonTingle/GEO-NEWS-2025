@@ -43,7 +43,10 @@
       varying vec3 vNormal;
       void main() {
         vUv = uv;
-        vNormal = normalize(normalMatrix * normal);
+        // Transform the normal into WORLD space so it can be compared against
+        // the world-space sunDirection uniform. Using normalMatrix (view space)
+        // makes the day/night terminator drift as the camera orbits.
+        vNormal = normalize(mat3(modelMatrix) * normal);
         gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
       }
     `;
@@ -56,8 +59,6 @@
       varying vec3 vNormal;
 
       void main() {
-        vec3 viewDirection = normalize(cameraPosition - vNormal);
-        
         // Calculate how much sun hits this pixel
         float intensity = dot(vNormal, sunDirection);
         
