@@ -31,6 +31,12 @@ def run_web2gif():
         messagebox.showinfo("Success", f"GIF created: {output_file}\n\n{result.stdout}")
     except subprocess.CalledProcessError as e:
         messagebox.showerror("Error", f"Failed to create GIF:\n{e.stderr}")
+    except FileNotFoundError:
+        messagebox.showerror(
+            "Error",
+            "Could not find 'web2gif.sh'.\n"
+            "Make sure the script exists and is in the same directory as this app."
+        )
 
 # -----------------------------
 # Tkinter GUI Setup
